@@ -279,6 +279,14 @@ section { padding: 64px 0; }
   overflow: hidden;
 }
 
+/* Native <details>/<summary> — remove default browser arrow/triangle */
+.faq-item summary.faq-question {
+  list-style: none;
+}
+.faq-item summary.faq-question::-webkit-details-marker {
+  display: none;
+}
+
 .faq-question {
   width: 100%;
   text-align: left;
@@ -307,22 +315,19 @@ section { padding: 64px 0; }
   transition: transform 0.25s ease, color 0.25s ease;
 }
 
-.faq-item.open .faq-question::after {
+.faq-item[open] .faq-question::after {
   transform: translateY(-50%) rotate(45deg);
   color: var(--gold-deep);
 }
 
 .faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease, padding 0.3s ease;
   color: #4a4a4a;
   font-size: 0.97rem;
-  padding: 0 20px;
+  padding: 0 20px 20px;
 }
 
-.faq-item.open .faq-answer {
-  padding: 0 20px 20px;
+.faq-answer p {
+  margin: 0;
 }
 
 /* ---------- Footer ---------- */

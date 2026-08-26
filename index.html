@@ -107,7 +107,79 @@
     <div class="wrap">
       <h2 class="section-title">Frequently asked questions</h2>
       <p class="section-sub">Can't find your answer? Reach out on Chat or by email — see the Contact section below.</p>
-      <div id="faq-list" class="faq-list"><!-- Populated by faq-data.js --></div>
+
+      <!-- =====================================================
+           FAQ LIST — edit directly here, no separate file needed.
+
+           TO ADD A QUESTION:
+             Copy one whole <details class="faq-item"> ... </details>
+             block below and paste it before </div> (the closing
+             tag right above the comment that says END FAQ LIST).
+             Change the question text inside <summary> and the
+             answer text inside <div class="faq-answer">.
+
+           TO REMOVE A QUESTION:
+             Delete its whole <details class="faq-item"> ... </details>
+             block.
+
+           TO EDIT A QUESTION:
+             Just change the text. You can use <a href="...">link
+             text</a> for links inside an answer.
+           ===================================================== -->
+      <div class="faq-list">
+
+        <details class="faq-item">
+          <summary class="faq-question">What is Latter UP?</summary>
+          <div class="faq-answer">
+            <p>Latter UP is an online, LDS-based co-op that brings students together for classes, community, and gospel learning in a virtual setting.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">How do I join a class chat?</summary>
+          <div class="faq-answer">
+            <p>Click the Google Chat button above, or go directly to <a href="https://mail.google.com/chat" target="_blank" rel="noopener">mail.google.com/chat</a>. Make sure you're signed in with the Google account you registered with.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">Where do I find my assignments?</summary>
+          <div class="faq-answer">
+            <p>All assignments, materials, and due dates are posted in Google Classroom. Use the Google Classroom button above to jump straight there.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">I can't access Google Classroom — what do I do?</summary>
+          <div class="faq-answer">
+            <p>First, make sure you're logged in with the correct Google account. If you're still having trouble, message us on Google Chat or send an email to <a href="mailto:studentleadership@latterup.org">studentleadership@latterup.org</a> and we'll get you sorted out.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">How do I contact a teacher directly?</summary>
+          <div class="faq-answer">
+            <p>Teachers can be messaged directly through Google Chat. If you're not sure who to reach out to, send a general message or email and we'll point you in the right direction.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">Is there a dress code or specific expectations for class?</summary>
+          <div class="faq-answer">
+            <p>Yes — expectations are outlined in each class's Google Classroom page under the "About" section. If you can't find them, ask your teacher directly.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">Who do I contact for technical issues?</summary>
+          <div class="faq-answer">
+            <p>For any tech trouble (login issues, video/audio problems, etc.), email <a href="mailto:studentleadership@latterup.org">studentleadership@latterup.org</a> and include a short description of the issue.</p>
+          </div>
+        </details>
+
+      </div>
+      <!-- END FAQ LIST -->
+
     </div>
   </section>
 
@@ -129,7 +201,6 @@
   <p class="footer-note">© <span id="year"></span> Latter UP. Made for our students and families.</p>
 </footer>
 
-<script src="faq-data.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

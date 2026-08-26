@@ -14,10 +14,9 @@ little JavaScript.
 ## File structure
 
 ```
-├── index.html       ← Page structure/content
+├── index.html       ← Page structure/content — FAQ questions live here too
 ├── styles.css        ← All styling (colors, fonts, layout)
-├── faq-data.js        ← Edit THIS file to add/change FAQ questions
-├── script.js         ← Powers the FAQ accordion (rarely needs editing)
+├── script.js         ← Sets the footer's copyright year (rarely needs editing)
 └── assets/
     └── favicon.svg    ← Browser tab icon
 ```
@@ -43,24 +42,30 @@ within a minute or two.
 
 ## How to edit the FAQ
 
-Open **`faq-data.js`**. Each question is a block that looks like this:
+Open **`index.html`** and scroll down to the section that starts with
+`<section class="faq" id="faq">`. Each question is a block that looks like
+this:
 
-```js
-{
-  question: "What is Latter UP?",
-  answer: "Latter UP is an online, LDS-based co-op..."
-}
+```html
+<details class="faq-item">
+  <summary class="faq-question">What is Latter UP?</summary>
+  <div class="faq-answer">
+    <p>Latter UP is an online, LDS-based co-op...</p>
+  </div>
+</details>
 ```
 
-- **To add a question:** copy one of these blocks, paste it inside the list,
-  and change the text.
-- **To remove a question:** delete its whole block.
-- **To edit a question:** just change the text between the quotes.
+- **To add a question:** copy one whole `<details class="faq-item"> ... </details>`
+  block, paste it anywhere inside the FAQ list, and change the text.
+- **To remove a question:** delete its whole `<details>...</details>` block.
+- **To edit a question:** just change the text inside `<summary>` (the
+  question) or inside `<p>` (the answer).
 - You can include a link in an answer like this:
-  `"Email us at <a href=\"mailto:you@example.com\">you@example.com</a>."`
+  `<a href="mailto:you@example.com">you@example.com</a>`
 
-You do not need to touch `index.html`, `styles.css`, or `script.js` to update
-the FAQ — `faq-data.js` is the only file meant to be edited regularly.
+The FAQ expands and collapses automatically — no JavaScript required. This
+uses a standard HTML feature (`<details>`/`<summary>`), so it can't silently
+break the way a separate script file can.
 
 ## How to update the Chat / Email / Classroom links
 
