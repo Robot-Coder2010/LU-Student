@@ -14,11 +14,13 @@ little JavaScript.
 ## File structure
 
 ```
-├── index.html       ← Page structure/content — FAQ questions live here too
-├── styles.css        ← All styling (colors, fonts, layout)
-├── script.js         ← Sets the footer's copyright year (rarely needs editing)
+├── index.html               ← Page structure/content
+├── styles.css                ← All styling (colors, fonts, layout)
+├── faq-data.js                ← Edit THIS file to add/change FAQ questions
+├── announcements-data.js       ← Edit THIS file to add/change announcements
+├── script.js                  ← Builds the FAQ/Announcements sections and sets the footer year (rarely needs editing)
 └── assets/
-    └── favicon.svg    ← Browser tab icon
+    └── favicon.svg              ← Browser tab icon
 ```
 
 ## How to publish this on GitHub Pages (free hosting)
@@ -40,32 +42,77 @@ little JavaScript.
 Any time you push new changes to the repo, the live site updates automatically
 within a minute or two.
 
-## How to edit the FAQ
+## How to edit Announcements
 
-Open **`index.html`** and scroll down to the section that starts with
-`<section class="faq" id="faq">`. Each question is a block that looks like
-this:
+Open **`announcements-data.js`**. Each announcement is a block like this:
 
-```html
-<details class="faq-item">
-  <summary class="faq-question">What is Latter UP?</summary>
-  <div class="faq-answer">
-    <p>Latter UP is an online, LDS-based co-op...</p>
-  </div>
-</details>
+```js
+{
+  title: "Example announcement title",
+  date: "Month Day, Year",
+  text: "Your announcement text goes here."
+}
 ```
 
-- **To add a question:** copy one whole `<details class="faq-item"> ... </details>`
-  block, paste it anywhere inside the FAQ list, and change the text.
-- **To remove a question:** delete its whole `<details>...</details>` block.
-- **To edit a question:** just change the text inside `<summary>` (the
-  question) or inside `<p>` (the answer).
-- You can include a link in an answer like this:
-  `<a href="mailto:you@example.com">you@example.com</a>`
+- **To add an announcement:** copy an existing block, paste it inside the
+  list, and change the text.
+- **To remove one:** delete its whole block.
+- **To edit one:** just change the text between the quotes.
+- Add `openByDefault: true` to a block to have it show expanded on page load
+  instead of collapsed.
 
-The FAQ expands and collapses automatically — no JavaScript required. This
-uses a standard HTML feature (`<details>`/`<summary>`), so it can't silently
-break the way a separate script file can.
+### Updating the Weekly Activity flyer (PDF)
+
+The first item in `announcements-data.js` is reserved for the weekly PDF
+flyer and looks like this:
+
+```js
+{
+  title: "Weekly Activity",
+  date: "Updated weekly",
+  text: "This week's activity flyer is below...",
+  pdfSrc: "flyer.pdf",
+  openByDefault: true
+}
+```
+
+To update it each week:
+
+1. Save your flyer as a PDF, e.g. `flyer.pdf`.
+2. Upload that PDF into your GitHub repo, in the same folder as `index.html`
+   (or into `assets` if you'd rather keep it tidy — just update `pdfSrc` to
+   match, e.g. `"assets/flyer.pdf"`).
+3. Make sure `pdfSrc` in `announcements-data.js` matches your file's exact
+   name.
+4. To reuse the same filename every week, just overwrite `flyer.pdf` with the
+   new file — no other changes needed.
+
+## How to edit the FAQ
+
+Open **`faq-data.js`**. Each question is a block that looks like this:
+
+```js
+{
+  question: "What is Latter UP?",
+  answer: "Latter UP is an online, LDS-based co-op..."
+}
+```
+
+- **To add a question:** copy one of these blocks, paste it inside the list,
+  and change the text.
+- **To remove a question:** delete its whole block.
+- **To edit a question:** just change the text between the quotes.
+- You can include a link in an answer like this:
+  `"Email us at <a href=\"mailto:you@example.com\">you@example.com</a>."`
+
+You do not need to touch `index.html`, `styles.css`, or `script.js` to update
+the FAQ or Announcements — those two data files are the only ones meant to
+be edited regularly.
+
+**Important:** at the very bottom of both `faq-data.js` and
+`announcements-data.js` there's a line like `window.FAQ_ITEMS = FAQ_ITEMS;`
+— don't delete that line. It's what makes the content actually show up on
+the page.
 
 ## How to update the Chat / Email / Classroom links
 
