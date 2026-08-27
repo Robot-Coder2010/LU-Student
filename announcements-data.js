@@ -46,16 +46,16 @@
    ========================================================================== */
 
 const ANNOUNCEMENT_ITEMS = [
-  {
-    title: "Weekly Activity — Back to School Kickoff",
-    date: "2026-08-24",
-    text: "This week's activity flyer is below. Tap or click to view it full-screen, or download it to save for later.",
-    pdfSrc: "flyer.pdf"
+    {
+    title: "Weekly Activity - Touch a Temple",
+    date: "2026-09-02",
+    text: "Replace this text with your announcement. You can write as much as you'd like here, and it will only show once a family clicks to expand it."
   },
   {
-    title: "Example announcement title",
-    date: "2026-08-10",
-    text: "Replace this text with your announcement. You can write as much as you'd like here, and it will only show once a family clicks to expand it."
+    title: "Weekly Activity — Back to School Kickoff",
+    date: "2026-08-26",
+    text: "This week's activity is a welcome to LU hosted by the board..",
+    pdfSrc: "flyer.pdf"
   },
   {
     title: "Another example announcement",
