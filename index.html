@@ -31,7 +31,8 @@
     </a>
     <nav class="site-nav" aria-label="Primary">
       <a href="#links">Quick Links</a>
-      <a href="#announcements">Announcements</a>
+      <a href="announcements.html">Announcements</a>
+      <a href="videos.html">Videos</a>
       <a href="#faq">FAQ</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -106,9 +107,27 @@
 
   <section class="announcements" id="announcements">
     <div class="wrap">
-      <h2 class="section-title">Announcements</h2>
-      <p class="section-sub">Weekly flyers and updates from the Latter UP team. Click any item to expand it.</p>
-      <div id="announcements-list" class="announcements-list"><!-- Populated by announcements-data.js --></div>
+      <div class="section-head-row">
+        <div>
+          <h2 class="section-title">Latest Announcements</h2>
+          <p class="section-sub">Recent flyers and updates. Click any item to expand it.</p>
+        </div>
+        <a class="view-all-link" href="announcements.html">View all announcements →</a>
+      </div>
+      <div id="announcements-preview-list" class="announcements-list"><!-- Populated by announcements-data.js --></div>
+    </div>
+  </section>
+
+  <section class="videos" id="videos">
+    <div class="wrap">
+      <div class="section-head-row">
+        <div>
+          <h2 class="section-title">Latest Videos</h2>
+          <p class="section-sub">Recent weekly and monthly videos from Latter UP.</p>
+        </div>
+        <a class="view-all-link" href="videos.html">View all videos →</a>
+      </div>
+      <div id="videos-preview-list" class="video-grid"><!-- Populated by videos-data.js --></div>
     </div>
   </section>
 
@@ -134,12 +153,18 @@
       <a href="mailto:latterup@gmail.com">latterup@gmail.com</a>
       <a href="https://classroom.google.com" target="_blank" rel="noopener">Google Classroom</a>
     </div>
+    <div class="footer-links">
+      <h3>Explore</h3>
+      <a href="announcements.html">Announcements</a>
+      <a href="videos.html">Videos</a>
+    </div>
   </div>
   <p class="footer-note">© <span id="year"></span> Latter UP. Made for our students and families.</p>
 </footer>
 
 <script src="faq-data.js"></script>
 <script src="announcements-data.js"></script>
+<script src="videos-data.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Videos — Latter UP Student Portal</title>
+<meta name="description" content="Weekly and monthly videos from Latter UP, an online LDS-based co-op.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48" width="34" height="34">
+          <path d="M24 4 L44 15 V33 L24 44 L4 33 V15 Z" fill="none" stroke="currentColor" stroke-width="2.5"/>
+          <path d="M24 13 L24 35 M15 24 L33 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span class="brand-text">
+        <span class="brand-name">Latter UP</span>
+        <span class="brand-sub">Student Portal</span>
+      </span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="index.html#links">Quick Links</a>
+      <a href="announcements.html">Announcements</a>
+      <a href="videos.html" aria-current="page">Videos</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="page-hero">
+    <div class="wrap">
+      <a class="back-link" href="index.html">← Back to portal home</a>
+      <h1 class="page-title">Videos</h1>
+      <p class="hero-lede">All weekly and monthly videos from Latter UP, newest first.</p>
+    </div>
+  </section>
+
+  <section class="videos-page">
+    <div class="wrap">
+      <div id="videos-full-list" class="video-grid"><!-- Populated by videos-data.js --></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer" id="contact">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <span class="brand-name">Latter UP</span>
+      <p>An online LDS-based co-op for learning and growing together.</p>
+    </div>
+    <div class="footer-links">
+      <h3>Contact</h3>
+      <a href="https://mail.google.com/chat" target="_blank" rel="noopener">Google Chat</a>
+      <a href="mailto:latterup@gmail.com">latterup@gmail.com</a>
+      <a href="https://classroom.google.com" target="_blank" rel="noopener">Google Classroom</a>
+    </div>
+    <div class="footer-links">
+      <h3>Explore</h3>
+      <a href="announcements.html">Announcements</a>
+      <a href="videos.html">Videos</a>
+    </div>
+  </div>
+  <p class="footer-note">© <span id="year"></span> Latter UP. Made for our students and families.</p>
+</footer>
+
+<script src="videos-data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

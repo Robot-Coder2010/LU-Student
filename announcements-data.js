@@ -2,40 +2,38 @@
    Latter UP — Announcements Content
    --------------------------------------------------------------------------
    This is the ONLY file you need to edit to add, remove, or change
-   announcements — including the Weekly Activity flyer.
+   announcements — including PDF flyers.
 
-   Each entry is one { ... } block in the list below. There are two kinds:
+   Used by BOTH index.html (shows the 2 most recent) and announcements.html
+   (shows the full feed) — so you only ever update this one file.
 
-   1) A normal text announcement:
-      {
-        title: "Example announcement title",
-        date: "Month Day, Year",
-        text: "Your announcement text goes here."
-      }
-
-   2) The Weekly Activity flyer (has a pdfSrc field, and opens automatically):
-      {
-        title: "Weekly Activity",
-        date: "Updated weekly",
-        text: "This week's activity flyer is below...",
-        pdfSrc: "flyer.pdf",
-        openByDefault: true
-      }
+   Each entry looks like this:
+     {
+       title: "Example announcement title",
+       date: "2026-08-26",
+       text: "Your announcement text goes here.",
+       pdfSrc: "flyer.pdf"   <-- optional, remove this line if there's no PDF
+     }
 
    To ADD an announcement:
-     Copy an existing { ... } block, paste it before the closing bracket,
-     and change the text.
+     Copy an existing { ... } block, paste it anywhere in the list, and
+     change the text. New/old order doesn't matter — the page sorts by
+     date automatically, newest first.
 
    To REMOVE an announcement:
      Delete its whole { ... } block (including the comma after it).
 
-   To UPDATE the Weekly Activity flyer:
-     1. Upload your PDF into the same folder as index.html (the root of the
-        repo), or into the "assets" folder if you'd like to keep things tidy.
-     2. Change pdfSrc below to match your file's exact name, e.g.
-        pdfSrc: "flyer.pdf"  or  pdfSrc: "assets/flyer.pdf"
-     3. Each week, just upload a new PDF with the same filename (overwriting
-        the old one) and no other changes are needed.
+   IMPORTANT ABOUT DATES:
+     Always use the format YYYY-MM-DD (4-digit year, 2-digit month,
+     2-digit day), for example "2026-08-26" for August 26, 2026.
+     This format keeps announcements sorted correctly (newest first)
+     and is shown to visitors in a friendly format automatically.
+
+   ATTACHING A PDF:
+     1. Upload your PDF into the repo (root folder or "assets" folder).
+     2. Add a pdfSrc line with the file's name, e.g. pdfSrc: "flyer.pdf"
+        or pdfSrc: "assets/flyer.pdf" if it's inside the assets folder.
+     3. Leave pdfSrc out entirely for announcements with no attachment.
 
    Notes:
    - Keep the quotes " " around your text.
@@ -43,25 +41,26 @@
      "This is a \"quoted\" word."
    - The text field supports basic HTML, so you can use <a href="...">
      to add a link, or <br><br> for a paragraph break.
-   - Set openByDefault: true on any item to have it show expanded by
-     default instead of collapsed. Leave it off (or set to false) for
-     items that should start collapsed.
-   - Do NOT rename ANNOUNCEMENT_ITEMS below — script.js looks for this
-     exact name.
+   - Do NOT delete the "window.ANNOUNCEMENT_ITEMS = ANNOUNCEMENT_ITEMS;"
+     line at the very bottom — it's what makes this content show up.
    ========================================================================== */
 
 const ANNOUNCEMENT_ITEMS = [
   {
-    title: "Weekly Activity",
-    date: "Updated weekly",
+    title: "Weekly Activity — Back to School Kickoff",
+    date: "2026-08-24",
     text: "This week's activity flyer is below. Tap or click to view it full-screen, or download it to save for later.",
-    pdfSrc: "flyer.pdf",
-    openByDefault: true
+    pdfSrc: "flyer.pdf"
   },
   {
     title: "Example announcement title",
-    date: "Month Day, Year",
+    date: "2026-08-10",
     text: "Replace this text with your announcement. You can write as much as you'd like here, and it will only show once a family clicks to expand it."
+  },
+  {
+    title: "Another example announcement",
+    date: "2026-07-28",
+    text: "This is what an older announcement looks like — it'll automatically move further down the feed as newer ones are added."
   }
 ];
 
