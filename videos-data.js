@@ -55,10 +55,10 @@
 
 const VIDEO_ITEMS = [
   {
-    title: "Example: August Family Night",
-    date: "2026-08-15",
+    title: "December SL Video",
+    date: "2025-12-15",
     description: "Replace this with a short description of what's in the video.",
-    videoSrc: "videos/example.mp4"
+    videoSrc: "videos/December 2025 SL Video.mp4"
   },
   {
     title: "Example: Weekly Devotional",

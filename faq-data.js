@@ -29,28 +29,24 @@ const FAQ_ITEMS = [
     answer: "Latter UP is an online, LDS-based co-op that brings students together for classes, community, and gospel learning in a virtual setting."
   },
   {
-    question: "How do I join a class chat?",
-    answer: "Click the Google Chat button above, or go directly to <a href=\"https://mail.google.com/chat\" target=\"_blank\" rel=\"noopener\">mail.google.com/chat</a>. Make sure you're signed in with the Google account you registered with."
+    question: "How do I join my class's google meet?",
+    answer: "Click the Google Chat button above, or go directly to <a href=\"https://mail.google.com/chat\" target=\"_blank\" rel=\"noopener\">mail.google.com/chat</a>. Make sure you're signed in with your LU account. Open the class you want and press the join meet button. You can only get on the class during class times and when a teacher is also on the meet."
   },
   {
     question: "Where do I find my assignments?",
-    answer: "All assignments, materials, and due dates are posted in Google Classroom. Use the Google Classroom button above to jump straight there."
+    answer: "All assignments, materials, and due dates are posted in Google Classroom under each specific class. Use the Google Classroom button above to jump straight there."
   },
   {
     question: "I can't access Google Classroom — what do I do?",
-    answer: "First, make sure you're logged in with the correct Google account. If you're still having trouble, message us on Google Chat or send an email to <a href=\"mailto:studentleadership@latterup.org\">studentleadership@latterup.org</a> and we'll get you sorted out."
+    answer: "First, make sure you're logged in and opening the classroom with your LU account. If you're still having trouble, message us on Google Chat or send an email to tech support <a href=\"mailto:techsupport@latterup.org\">techsupport@latterup.org</a> and we'll get you sorted out."
   },
   {
-    question: "How do I contact a teacher directly?",
-    answer: "Teachers can be messaged directly through Google Chat. If you're not sure who to reach out to, send a general message or email and we'll point you in the right direction."
-  },
-  {
-    question: "Is there a dress code or specific expectations for class?",
-    answer: "Yes — expectations are outlined in each class's Google Classroom page under the 'About' section. If you can't find them, ask your teacher directly."
+    question: "How do I contact a teacher?",
+    answer: "Teachers can be messaged directly through Google Chat with a parent included in the chat. The eacher's email is their first and last name @latterup.org. <br> <br> For example: if your teacher was Bob Ross, the email would be: BobRoss@latterup.org"
   },
   {
     question: "Who do I contact for technical issues?",
-    answer: "For any tech trouble (login issues, video/audio problems, etc.), email <a href=\"mailto:studentleadership@latterup.org\">studentleadership@latterup.org</a> and include a short description of the issue."
+    answer: "For any tech trouble (login issues, video/audio problems, etc.), email <a href=\"mailto:techsupport@latterup.org\">techsupport@latterup.org</a> and include a short description of the issue. They can get you all sorted"
   }
 ];
 

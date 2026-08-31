@@ -49,13 +49,13 @@ const ANNOUNCEMENT_ITEMS = [
     {
     title: "Weekly Activity - Touch a Temple",
     date: "2026-09-02",
-    text: "Replace this text with your announcement. You can write as much as you'd like here, and it will only show once a family clicks to expand it."
+    text: "Come to the ________ temple with us and the _________ family!"
   },
   {
     title: "Weekly Activity — Back to School Kickoff",
     date: "2026-08-26",
     text: "This week's activity is a welcome to LU hosted by the board..",
-    pdfSrc: "flyer.pdf"
+    pdfSrc: "pdfs/image.pdf"
   },
   {
     title: "Another example announcement",
