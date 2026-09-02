@@ -26,8 +26,14 @@ little JavaScript.
 ├── videos-data.js                    ← Edit to add/change videos
 ├── script.js                          ← Builds all the sections (rarely needs editing)
 ├── assets/
-│   └── favicon.svg                      ← Browser tab icon
-└── videos/                                ← Put your .mp4 files in here (create this folder)
+│   ├── favicon.svg                      ← Browser tab icon
+│   └── logo.png                          ← Header logo
+├── pdfs/                                  ← Put announcement PDF flyers in here
+├── videos/                                ← Put your .mp4 files in here
+└── leadership/                             ← Content tool for Student Leadership
+    ├── index.html                            ← The tool itself
+    ├── leadership.css                         ← Its styling
+    └── leadership.js                           ← Its logic
 ```
 
 **You will only regularly edit three files: `faq-data.js`,
@@ -54,6 +60,50 @@ little JavaScript.
 
 Any time you push new changes to the repo, the live site updates automatically
 within a minute or two.
+
+## How to set up the Calendar section
+
+The home page has a "Calendar" section with an embedded Google Calendar on
+the left and a card linking out to Google Calendar on the right. To make
+the embed show your actual events:
+
+1. Go to [calendar.google.com](https://calendar.google.com), find the
+   calendar you want to show (e.g. an LU events calendar), hover over it in
+   the sidebar, click the three-dot menu, and choose **Settings and sharing**.
+2. Scroll to **Access permissions for events** and turn on **Make available
+   to public** (or share it with "Anyone with the link"). If this isn't
+   turned on, the embed will show blank or an error for visitors.
+3. Scroll to **Integrate calendar** and copy the **Calendar ID** — it
+   usually looks like an email address, e.g.
+   `something@group.calendar.google.com`.
+4. Open **`index.html`**, find the calendar section (search for
+   `YOUR_CALENDAR_ID_HERE`), and replace that placeholder with your real
+   Calendar ID.
+
+## Content tool for Student Leadership
+
+There's a page at `leadership/index.html` that helps non-technical Student
+Leadership members add or edit announcements and videos without hand-editing
+JavaScript. It:
+
+- Isn't linked from anywhere on the main site and won't show up in search
+  engines (so it won't be stumbled into by students browsing the portal)
+- Lets you paste in the current data file, click an entry to edit it or add
+  a new one through a plain form, and generates the correctly-formatted code
+  for you to copy back into GitHub
+
+**Important — this is not a real login or security system.** Anyone who has
+this exact page's link could open it, since there's no server behind this
+site to actually check a password (a static site literally cannot keep a
+secret — anything in the page's code is visible to anyone who looks). Treat
+the link like a semi-private door, not a locked one: share it only with
+Student Leadership, and know that determined guessing or a shared link could
+still get someone in. It also doesn't save anything automatically — every
+change still has to be manually copied and pasted into the real files on
+GitHub and committed, same as editing the files by hand.
+
+Once published, this tool lives at:
+`https://YOUR-USERNAME.github.io/latterup-portal/leadership/`
 
 ## How to edit Announcements
 
@@ -164,6 +214,13 @@ Each question is a block that looks like this:
 and `videos-data.js` there's a line like `window.FAQ_ITEMS = FAQ_ITEMS;` —
 don't delete that line in any of them. It's what makes the content actually
 show up on the page.
+
+## How to update the Resources & Media links
+
+Open **`index.html`** and search for `<section class="resources"`. Each row
+is an `<a class="resource-row" href="...">` tag — change the `href` to point
+wherever you'd like (e.g. a specific shared Docs folder instead of the
+general Google Docs homepage).
 
 ## How to update the Chat / Email / Classroom links
 

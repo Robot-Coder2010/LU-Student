@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Content Tool — Latter UP</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="leadership.css">
+</head>
+<body>
+
+<div class="lt-page">
+  <div class="wrap lt-wrap">
+
+    <header class="lt-header">
+      <h1 class="lt-title">Announcements &amp; Videos — Content Tool</h1>
+      <p class="lt-lede">
+        This tool helps you build the code for new or updated announcements and
+        videos. It does <strong>not</strong> save anything automatically — when
+        you're done, you'll copy the result and paste it into the site's files on
+        GitHub yourself. See the "How this works" section at the bottom if
+        you're new to this.
+      </p>
+      <p class="lt-warning">
+        This page isn't linked anywhere on the main site and won't appear in
+        search results, but it also isn't truly password-protected — anyone
+        with this exact link could open it. Please don't share this link
+        outside the Student Leadership team.
+      </p>
+    </header>
+
+    <nav class="lt-tabs" role="tablist">
+      <button class="lt-tab is-active" data-tab="announcements" role="tab" aria-selected="true">Announcements</button>
+      <button class="lt-tab" data-tab="videos" role="tab" aria-selected="false">Videos</button>
+    </nav>
+
+    <!-- ================= ANNOUNCEMENTS PANEL ================= -->
+    <section class="lt-panel is-active" id="panel-announcements" role="tabpanel">
+
+      <div class="lt-step">
+        <h2 class="lt-step-title">1. Load the current announcements</h2>
+        <p class="lt-step-desc">
+          Open <code>announcements-data.js</code> in GitHub, copy its entire
+          contents, and paste it below. This lets the tool show you the
+          existing list so you can add a new one or edit an old one.
+        </p>
+        <textarea id="ann-source" class="lt-textarea" placeholder="Paste the full contents of announcements-data.js here…" rows="8"></textarea>
+        <div class="lt-actions">
+          <button class="lt-btn lt-btn--primary" id="ann-load-btn">Load announcements</button>
+          <span class="lt-status" id="ann-load-status"></span>
+        </div>
+      </div>
+
+      <div class="lt-step" id="ann-list-step" hidden>
+        <h2 class="lt-step-title">2. Current announcements</h2>
+        <p class="lt-step-desc">Click one to edit it, or add a new one below.</p>
+        <div class="lt-list" id="ann-list"></div>
+        <button class="lt-btn lt-btn--secondary" id="ann-add-new-btn">+ Add a new announcement</button>
+      </div>
+
+      <div class="lt-step" id="ann-form-step" hidden>
+        <h2 class="lt-step-title" id="ann-form-title">New announcement</h2>
+
+        <label class="lt-label" for="ann-title">Title</label>
+        <input class="lt-input" id="ann-title" type="text" placeholder="e.g. Weekly Activity — Fall Kickoff">
+
+        <label class="lt-label" for="ann-date">Date</label>
+        <input class="lt-input" id="ann-date" type="date">
+        <p class="lt-hint">This controls the order — newest date shows first.</p>
+
+        <label class="lt-label" for="ann-text">Details</label>
+        <textarea class="lt-textarea" id="ann-text" rows="4" placeholder="What is this announcement about?"></textarea>
+        <p class="lt-hint">
+          You can add a link with <code>&lt;a href="https://example.com"&gt;link text&lt;/a&gt;</code>,
+          or a line break with <code>&lt;br&gt;&lt;br&gt;</code>.
+        </p>
+
+        <label class="lt-label" for="ann-pdf">Attached PDF filename (optional)</label>
+        <input class="lt-input" id="ann-pdf" type="text" placeholder="e.g. flyer.pdf or pdfs/flyer.pdf">
+        <p class="lt-hint">
+          Leave blank if there's no flyer. Upload the PDF itself separately
+          into the <code>pdfs</code> folder on GitHub — this box just needs
+          to match that file's name exactly.
+        </p>
+
+        <div class="lt-actions">
+          <button class="lt-btn lt-btn--primary" id="ann-save-entry-btn">Save this announcement</button>
+          <button class="lt-btn lt-btn--danger" id="ann-delete-entry-btn" hidden>Delete this announcement</button>
+          <button class="lt-btn lt-btn--ghost" id="ann-cancel-btn">Cancel</button>
+        </div>
+      </div>
+
+      <div class="lt-step" id="ann-output-step" hidden>
+        <h2 class="lt-step-title">3. Copy the updated file</h2>
+        <p class="lt-step-desc">
+          Copy everything below, then in GitHub open <code>announcements-data.js</code>,
+          select all the existing text, delete it, paste this in, and commit.
+        </p>
+        <div class="lt-actions">
+          <button class="lt-btn lt-btn--primary" id="ann-copy-btn">Copy to clipboard</button>
+          <span class="lt-status" id="ann-copy-status"></span>
+        </div>
+        <textarea class="lt-textarea lt-textarea--output" id="ann-output" rows="14" readonly></textarea>
+      </div>
+
+    </section>
+
+    <!-- ================= VIDEOS PANEL ================= -->
+    <section class="lt-panel" id="panel-videos" role="tabpanel" hidden>
+
+      <div class="lt-step">
+        <h2 class="lt-step-title">1. Load the current videos</h2>
+        <p class="lt-step-desc">
+          Open <code>videos-data.js</code> in GitHub, copy its entire
+          contents, and paste it below.
+        </p>
+        <textarea id="vid-source" class="lt-textarea" placeholder="Paste the full contents of videos-data.js here…" rows="8"></textarea>
+        <div class="lt-actions">
+          <button class="lt-btn lt-btn--primary" id="vid-load-btn">Load videos</button>
+          <span class="lt-status" id="vid-load-status"></span>
+        </div>
+      </div>
+
+      <div class="lt-step" id="vid-list-step" hidden>
+        <h2 class="lt-step-title">2. Current videos</h2>
+        <p class="lt-step-desc">Click one to edit it, or add a new one below.</p>
+        <div class="lt-list" id="vid-list"></div>
+        <button class="lt-btn lt-btn--secondary" id="vid-add-new-btn">+ Add a new video</button>
+      </div>
+
+      <div class="lt-step" id="vid-form-step" hidden>
+        <h2 class="lt-step-title" id="vid-form-title">New video</h2>
+
+        <label class="lt-label" for="vid-title">Title</label>
+        <input class="lt-input" id="vid-title" type="text" placeholder="e.g. September Family Night">
+
+        <label class="lt-label" for="vid-date">Date</label>
+        <input class="lt-input" id="vid-date" type="date">
+        <p class="lt-hint">This controls the order — newest date shows first.</p>
+
+        <label class="lt-label" for="vid-desc">Description (optional)</label>
+        <textarea class="lt-textarea" id="vid-desc" rows="3" placeholder="A short description of what's in the video."></textarea>
+
+        <label class="lt-label" for="vid-type">Video source</label>
+        <div class="lt-radio-row">
+          <label class="lt-radio"><input type="radio" name="vid-type" value="file" checked> Uploaded file (.mp4)</label>
+          <label class="lt-radio"><input type="radio" name="vid-type" value="youtube"> YouTube link</label>
+        </div>
+
+        <div id="vid-file-fields">
+          <label class="lt-label" for="vid-src">Video filename</label>
+          <input class="lt-input" id="vid-src" type="text" placeholder="e.g. videos/september-family-night.mp4">
+          <p class="lt-hint">
+            Upload the actual .mp4 file separately into the <code>videos</code>
+            folder on GitHub — this box just needs to match that file's name
+            exactly. GitHub has a 25MB upload limit per file; for longer
+            videos, use YouTube instead.
+          </p>
+        </div>
+
+        <div id="vid-youtube-fields" hidden>
+          <label class="lt-label" for="vid-yt">YouTube video ID or link</label>
+          <input class="lt-input" id="vid-yt" type="text" placeholder="e.g. dQw4w9WgXcQ or the full YouTube URL">
+          <p class="lt-hint">
+            You can paste the full YouTube URL — this tool will pull out just
+            the ID part automatically.
+          </p>
+        </div>
+
+        <div class="lt-actions">
+          <button class="lt-btn lt-btn--primary" id="vid-save-entry-btn">Save this video</button>
+          <button class="lt-btn lt-btn--danger" id="vid-delete-entry-btn" hidden>Delete this video</button>
+          <button class="lt-btn lt-btn--ghost" id="vid-cancel-btn">Cancel</button>
+        </div>
+      </div>
+
+      <div class="lt-step" id="vid-output-step" hidden>
+        <h2 class="lt-step-title">3. Copy the updated file</h2>
+        <p class="lt-step-desc">
+          Copy everything below, then in GitHub open <code>videos-data.js</code>,
+          select all the existing text, delete it, paste this in, and commit.
+        </p>
+        <div class="lt-actions">
+          <button class="lt-btn lt-btn--primary" id="vid-copy-btn">Copy to clipboard</button>
+          <span class="lt-status" id="vid-copy-status"></span>
+        </div>
+        <textarea class="lt-textarea lt-textarea--output" id="vid-output" rows="14" readonly></textarea>
+      </div>
+
+    </section>
+
+    <section class="lt-help">
+      <h2 class="lt-step-title">How this works</h2>
+      <ol class="lt-help-list">
+        <li>On GitHub, open <code>announcements-data.js</code> or <code>videos-data.js</code>, copy everything in the file, and paste it into step 1 above.</li>
+        <li>Click an existing entry to edit it, or add a new one.</li>
+        <li>Fill out the form and save — this only changes what you see on this page, nothing is sent anywhere yet.</li>
+        <li>Copy the finished code from step 3.</li>
+        <li>Back on GitHub, open the same file, select all (Ctrl/Cmd+A), delete, paste in the new code, and commit the change. The live site updates within a minute or two.</li>
+      </ol>
+      <p class="lt-help-note">
+        If you're attaching a PDF or uploading a video file, remember to also
+        upload that actual file into the <code>pdfs</code> or <code>videos</code>
+        folder on GitHub — this tool only handles the text/code side, not file
+        uploads.
+      </p>
+    </section>
+
+  </div>
+</div>
+
+<script src="leadership.js"></script>
+</body>
+</html>

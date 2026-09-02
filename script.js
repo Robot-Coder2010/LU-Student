@@ -45,11 +45,12 @@
     let bodyHtml = `<p>${item.text}</p>`;
 
     if (item.pdfSrc) {
+      const safePdfSrc = encodeURI(item.pdfSrc);
       bodyHtml += `
         <div class="pdf-embed">
-          <embed src="${item.pdfSrc}" type="application/pdf" class="pdf-frame">
+          <embed src="${safePdfSrc}" type="application/pdf" class="pdf-frame">
           <p class="pdf-fallback">
-            <a href="${item.pdfSrc}" target="_blank" rel="noopener">Open this flyer (PDF) →</a>
+            <a href="${safePdfSrc}" target="_blank" rel="noopener">Open this flyer (PDF) →</a>
           </p>
         </div>
       `;
@@ -91,9 +92,12 @@
         </div>
       `;
     } else if (item.videoSrc) {
+      // Encode spaces/special characters in the path so filenames with
+      // spaces (e.g. "December 2025 SL Video.mp4") still load correctly.
+      const safeSrc = encodeURI(item.videoSrc);
       mediaHtml = `
         <div class="video-frame-wrap">
-          <video controls preload="metadata" src="${item.videoSrc}"></video>
+          <video controls preload="metadata" src="${safeSrc}"></video>
         </div>
       `;
     } else {
